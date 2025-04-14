@@ -53,10 +53,12 @@
     </div>    
 </div>
 </div> 
-<div id="editModal" class="hidden bg-gray-100 fixed top-15 left-150  justify-center items-center  h-100 w-100 z-50 ">
+<div id="editModal" class="hidden bg-gray-100 fixed top-10 left-150  justify-center items-center  h-100 w-100 z-50 ">
+    <!-- Tombol X -->
+    <button onclick="closeEditModal()" class="absolute top-2 right-2 text-gray-600 hover:text-red-600 text-xl font-bold z-50">&times;</button>
     <form action="" id="editForm" method="post" enctype="multipart/form-data" class="bg-gray-50 w-full max-w-lg rounded shadow-md p-8">
       <div class="text-center mb-6">
-        <h1 class="text-3xl font-bold text-blue-600">Edit User</h1>
+        <h1 class="text-3xl font-bold text-blue-600">Edit Rooms</h1>
       </div>
   
       @csrf

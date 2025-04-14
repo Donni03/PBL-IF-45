@@ -3,13 +3,13 @@
   <div class="flex justify-center items-center min-h-screen">
     <div class="bg-[#FFFFFF] rounded shadow-md">
         <img class="w-full" src="{{asset('img/nav.png')}}" alt="">
-            <div class="bg-[#d9d9d9] w-full p-5 h-134">
+            <div class="bg-[#d9d9d9] p-4 h-125">
                 <div class=" border-[1px] bg-[#5376C0] border-[#5376C0] w-80 h-3 ml-5 ">
                 </div>
                     <div class="text-[#5376C0] p-2 flex justify-center text-[1.5rem]">Account Registration
             </div> 
             <div class="flex justify-center">
-              <form action="{{route('registrasi')}}" method="post" autocomplete="off" class="flex flex-col space-y-2">
+              <form action="{{route('registrasi')}}" method="post" autocomplete="off" class="flex flex-col space-y-1">
                   @csrf
                   <div>
                     <label class="block text-[#473F3F] mb-1">Nama</label>
@@ -38,8 +38,8 @@
                     <a href="/login" class="text-sm text-[1rem] font-medium text-[#FE5F55] hover:underline">Login</a></p>
                   </div>
               
-                  <div class="mt-4 text-center flex justify-center">
-                    <button type="submit" class="bg-[#5376C0] text-white w-36 h-9 rounded hover:bg-blue-700 transition">Register</button>
+                  <div class="mt-1 text-center flex justify-center">
+                    <button type="submit" class="bg-[#928fbd] text-black w-36 h-9 rounded hover:bg-blue-700 transition glow-border">Register</button>
                   </div>
                 </form>
               </div>              

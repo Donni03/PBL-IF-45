@@ -5,6 +5,8 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\RoomController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\BookingController;
+
 
 Route::get('/add', function () {
     return view('admin.add_rooms');
@@ -33,4 +35,11 @@ Route::get('/api/total-rooms', function () {
     return response()->json(['total_rooms' => $total]);
 });
 Route::put('/rooms/{id}', [RoomController::class, 'update'])->name('rooms.update');
-
+Route::get('/Rooms', function () {
+    return view('users.rooms');
+});
+Route::get('/home', function () {
+    $rooms = App\Models\Room::all();
+    return view('users.home', compact('rooms'));
+});
+Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');

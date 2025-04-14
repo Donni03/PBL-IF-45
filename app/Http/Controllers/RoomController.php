@@ -12,6 +12,14 @@ class RoomController extends Controller
     {
         $rooms = Room::simplePaginate(3);
         return view('admin.rooms', compact('rooms'));
+        $rooms = Room::all(); // atau query lainnya
+        return view('users.home', compact('rooms'));
+    }
+    // Controller Detail 
+    public function show($id)
+    {
+        $room = Room::findOrFail($id);
+        return view('users.home', compact('rooms'));
     }
     public function delete($id)
     {
@@ -19,9 +27,7 @@ class RoomController extends Controller
         $rooms->delete();
         return redirect()->back()->with('success', 'User deleted successfully');
     }
-    /**
-     * Display a listing of the resource.
-     */
+    
     public function create(){
         return view('admin.add_rooms');
     }
