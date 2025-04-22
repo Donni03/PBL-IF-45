@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('position');
             $table->string('email')->unique(); 
             $table->string('password');
+            $table->string('role')->default('user'); // Menggunakan tipe data varchar untuk role
             $table->timestamps();
         });
     }

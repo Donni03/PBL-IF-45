@@ -1,4 +1,5 @@
 @extends('layout.main')
+<form action="{{'admin'}}">
 @section('container')
     @include('component.navbar')
     <div class="bg-gray-100 min-h-screen p-1 flex space-x-0.5">
@@ -71,5 +72,5 @@
         }
     </script>
     
-        
+</form>
 @endsection

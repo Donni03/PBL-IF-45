@@ -12,6 +12,8 @@ class RoomController extends Controller
     {
         $rooms = Room::simplePaginate(3);
         return view('admin.rooms', compact('rooms'));
+    }
+    public function user(){
         $rooms = Room::all(); // atau query lainnya
         return view('users.home', compact('rooms'));
     }
