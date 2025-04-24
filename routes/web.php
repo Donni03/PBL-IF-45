@@ -10,7 +10,7 @@ use App\Http\Controllers\BookingController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
 
-Route::middleware('guest')->group(function(){
+Route::middleware(['guest'])->group(function(){
     Route::get('/', [UserController::class, 'dashboard']);
     Route::get('contact', [UserController::class, 'contact']);
     Route::get('about', [UserController::class, 'about']);
@@ -22,31 +22,32 @@ Route::middleware('guest')->group(function(){
 
 Route::middleware(['auth'])->group(function () {
 Route::get('/beranda', [UserController::class, 'admin']);
+Route::get('/beranda/admin/profile', [UserController::class, 'profil'])->name('profile');
 //admin
-Route::get('/beranda/admin', [UserController::class, 'index'])->name('admin')->middleware('role:admin');
+Route::get('/beranda/admin', [UserController::class, 'index'])->name('admin');
 
 //users
-Route::get('/beranda/user', [UserController::class, 'user'])->name('user')->middleware('role:user');
+Route::get('/beranda/user', [RoomController::class, 'user'])->name('user');
 });
-Route::get('/dashboard', function () {
-    return view('admin.dashboard');
-});
+//Route::get('/dashboard', function () {
+    //return view('admin.dashboard');
+//});
 
-Route::get('/add', function () {
-    return view('admin.add_rooms');
-});
+//Route::get('/add', function () {
+  //  return view('admin.add_rooms');
+//});
     // Jika kamu ingin menambahkan room
-Route::post('/tambah', [RoomController::class, 'store'])->name('room');
+//Route::post('/tambah', [RoomController::class, 'store'])->name('room');
 
 // Kalau form-nya dari route /tambah (GET)
-Route::get('/tambah', [RoomController::class, 'create']);
-Route::get('/users', [ListUsersController::class, 'showUser'])->name('list_users');
-Route::delete('/users/{id}', [ListUsersController::class, 'destroy'])->name('users.destroy');
-Route::get('/api/total-users', function () {
-    $total = DB::table('users')->count();
-    return response()->json(['total_users' => $total]);
-});
-Route::get('/edit', function () {
+//Route::get('/tambah', [RoomController::class, 'create']);
+//Route::get('/users', [ListUsersController::class, 'showUser'])->name('list_users');
+//Route::delete('/users/{id}', [ListUsersController::class, 'destroy'])->name('users.destroy');
+//Route::get('/api/total-users', function () {
+  //  $total = DB::table('users')->count();
+    //return response()->json(['total_users' => $total]);
+//});
+/*Route::get('/edit', function () {
     return view('admin.user_edit');
 });
 Route::put('/users/{id}', [ListUsersController::class, 'update'])->name('users.update');
@@ -59,5 +60,5 @@ Route::put('/rooms/{id}', [RoomController::class, 'update'])->name('rooms.update
 //Route::get('/home', function () {
  //   $rooms = App\Models\Room::all();
   //  return view('users.home', compact('rooms'));
-//});
+//});  */
 Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');

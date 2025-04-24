@@ -1,7 +1,7 @@
 @extends('layout.user')
 @section('container')
 @include('partials.user')
-<form action="{{'user'}}">
+
 <div class="flex flex-col min-h-screen">
     <div class="container mx-auto py-8 h-auto">
         <div class="grid grid-cols-5 gap-4">
@@ -74,5 +74,4 @@
     modal.classList.add('hidden');
   }
     </script>
-    </form>
 @endsection

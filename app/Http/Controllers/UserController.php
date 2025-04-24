@@ -2,21 +2,20 @@
 
 namespace App\Http\Controllers;
 
-
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    public function profil()
+    {
+        $user = Auth::user();
+        return view('users.profile', compact('user'));
+    }
     public function index()
     {
         return view('admin.add_rooms');
-    }
-    public function user(){
-        return view('users.home');
-    }
-    public function admin()
-    {
-        return view('users.dashboard');
     }
     public function dashboard()
     {

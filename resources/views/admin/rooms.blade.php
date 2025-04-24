@@ -1,6 +1,7 @@
 @extends('layout.main')
 @section('container')
   @include('component.navbar')
+  <form action="home">
   <div class="bg-gray-100 min-h-screen p-1 flex space-x-0.5">
     <div class="flex flex-col min-w-[15rem]">
         <div class="w-60 bg-[#56B8FE] flex justify-center items-center rounded shadow-md h-[100px] ">
@@ -141,4 +142,5 @@
             }
         }
     </script>
+    </form>
     @endsection

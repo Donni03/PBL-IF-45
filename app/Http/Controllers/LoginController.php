@@ -31,7 +31,7 @@ class LoginController extends Controller
             if (Auth::user()->role == 'admin'){
                 return redirect('beranda/admin');
             } elseif (Auth::user()->role == 'user'){
-                return redirect('beranda');
+                return redirect('beranda/user');
             }
         } else{
             return redirect('/login')->withErrors('Invalid Username and Password')->withInput();
