@@ -22,9 +22,10 @@ Route::middleware(['guest'])->group(function(){
 
 Route::middleware(['auth'])->group(function () {
 Route::get('/beranda', [UserController::class, 'admin']);
-Route::get('/beranda/admin/profile', [UserController::class, 'profil'])->name('profile');
+Route::get('/profile', [UserController::class, 'profil'])->name('profile');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 //admin
-Route::get('/beranda/admin', [UserController::class, 'index'])->name('admin');
+Route::get('/beranda/admin', [UserController::class, 'index'])->name('room');
 
 //users
 Route::get('/beranda/user', [RoomController::class, 'user'])->name('user');
